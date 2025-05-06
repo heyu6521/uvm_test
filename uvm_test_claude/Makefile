@@ -24,7 +24,7 @@ COMP_OPTS = -sverilog \
             +v2k \
             -full64 \
             -debug_all \
-						-debug_access+all -fsdb \
+						-debug_access+all -fsdb -kdb -lca \
             +incdir+$(TB_DIR) \
             +incdir+$(UVM_HOME) \
             $(UVM_HOME)/uvm.sv \
@@ -33,10 +33,13 @@ COMP_OPTS = -sverilog \
 
 SIM_OPTS  = -l $(SIM_DIR)/sim.log \
             +UVM_TESTNAME=simple_adder_test \
+						+UVM_VERDI_TRACE="UVM_AWARE+RAL+HIER+COMPWAVE" \
+						+UVM_TR_RECORD \
             +UVM_VERBOSITY=UVM_MEDIUM \
             +UVM_PHASE_TRACE \
 						+fsdbfile+dump.fsdb \
-						+vcs+kdb
+						+vcs+kdb \
+#						-gui=verdi 
 
 # 默认目标
 all: comp run
@@ -56,7 +59,8 @@ run: $(SIM_DIR)
 
 # 启动波形查看器
 verdi: $(SIM_DIR)
-	cd $(SIM_DIR) && $(VERDI) -v $(RTL_SRCS) -sv $(TB_SRCS) -ssf dump.fsdb -nologo -autoread -top top
+	cd $(SIM_DIR) && $(VERDI) -f ../filelist.f -ssf dump.fsdb
+#	cd $(SIM_DIR) && $(VERDI) -v $(RTL_SRCS) -sv $(TB_SRCS) -ssf dump.fsdb -nologo -autoread -top top
 #verdi: $(SIM_DIR)
 #	cd $(SIM_DIR) && $(VERDI) -kdb simv.kdb -ssf dump.fsdb -nologo &	
 # 运行随机测试
@@ -70,7 +74,7 @@ test_directed: comp
 # 运行所有测试
 test_all: test_random test_directed
 
-filelist:
+f:
 	find ./rtl ./tb -name "*.v" -o -name "*.sv" > filelist.f
 
 
