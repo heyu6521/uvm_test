@@ -1,5 +1,16 @@
 ./rtl/simple_adder.v
 ./tb/simple_adder_if.sv
+./tb/seq_items/simple_adder_seq_item.sv
+./tb/sequences/simple_adder_sequences.sv
+./tb/agent/simple_adder_sequencer.sv
+./tb/agent/simple_adder_driver.sv
+./tb/agent/simple_adder_monitor.sv
+./tb/agent/simple_adder_agent.sv
+./tb/env/simple_adder_scoreboard.sv
+./tb/env/simple_adder_env.sv
+./tb/tests/simple_adder_base_test.sv
+./tb/tests/simple_adder_random_test.sv
+./tb/tests/simple_adder_directed_test.sv
 ./tb/simple_adder_pkg.sv
 ./tb/simple_adder_test.sv
 ./tb/top.sv
