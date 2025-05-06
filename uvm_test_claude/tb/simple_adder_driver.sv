@@ -29,17 +29,17 @@ class simple_adder_driver extends uvm_driver #(simple_adder_seq_item);
     
     forever begin
       seq_item_port.get_next_item(req);
-      drive_stimulus();
+      drive_stimulus(req); // Pass the request item to the task
       seq_item_port.item_done();
     endtask
-  endclass
 
-  task drive_stimulus();
+  // Move drive_stimulus task inside the class
+  task drive_stimulus(simple_adder_seq_item req); // Add req as argument
     @(vif.driver_cb);
     vif.driver_cb.a <= req.a;
     vif.driver_cb.b <= req.b;
     `uvm_info(get_type_name(), $sformatf("Drove stimulus: a=%0h, b=%0h", req.a, req.b), UVM_HIGH)
   endtask
-endclass
+endclass // End of simple_adder_driver class
 
 `endif // SIMPLE_ADDER_DRIVER_SV

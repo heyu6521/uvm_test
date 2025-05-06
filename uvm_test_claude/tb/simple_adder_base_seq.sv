@@ -1,10 +1,12 @@
 `ifndef SIMPLE_ADDER_BASE_SEQ_SV
 `define SIMPLE_ADDER_BASE_SEQ_SV
 
-`include "simple_adder_seq_item.sv"
+// No need to include seq_item here, it's in the package
+// `include "simple_adder_seq_item.sv" 
 
 import uvm_pkg::*;
 `include "uvm_macros.svh"
+import simple_adder_pkg::*; // Import the package to access simple_adder_seq_item
 
 // 序列基类
 class simple_adder_base_seq extends uvm_sequence #(simple_adder_seq_item);
