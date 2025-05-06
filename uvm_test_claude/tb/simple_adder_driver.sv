@@ -30,7 +30,7 @@ class simple_adder_driver extends uvm_driver #(simple_adder_pkg::simple_adder_se
     
     // Declare req locally within run_phase
     // Use explicit package scope for the sequence item type
-    simple_adder_pkg::simple_adder_seq_item req; 
+    simple_adder_pkg::simple_adder_seq_item req = simple_adder_pkg::simple_adder_seq_item::type_id::create("req");
 
     forever begin
       seq_item_port.get_next_item(req);
