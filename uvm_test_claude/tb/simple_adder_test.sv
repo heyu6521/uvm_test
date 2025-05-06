@@ -24,7 +24,7 @@ class simple_adder_test extends simple_adder_base_test;
     phase.raise_objection(this);
     
     `uvm_info(get_type_name(), "Starting random sequence", UVM_LOW)
-    random_seq = simple_adder_random_seq::type_id::create("random_seq");
+    random_seq = simple_adder_pkg::simple_adder_random_seq::type_id::create("random_seq");
     // Ensure the sequence runs on the correct sequencer
     if (!random_seq.randomize()) `uvm_fatal("SEQ_RAND_FAIL", "Failed to randomize random_seq")
     random_seq.start(env.agent.sequencer); 
@@ -32,7 +32,7 @@ class simple_adder_test extends simple_adder_base_test;
     #50;
     
     `uvm_info(get_type_name(), "Starting directed sequence", UVM_LOW)
-    directed_seq = simple_adder_directed_seq::type_id::create("directed_seq");
+    directed_seq = simple_adder_pkg::simple_adder_directed_seq::type_id::create("directed_seq");
     // Ensure the sequence runs on the correct sequencer
     if (!directed_seq.randomize()) `uvm_fatal("SEQ_RAND_FAIL", "Failed to randomize directed_seq") // Although not random, randomize() is still needed for construction
     directed_seq.start(env.agent.sequencer);

@@ -39,7 +39,9 @@ class simple_adder_driver extends uvm_driver #(simple_adder_pkg::simple_adder_se
       vif.driver_cb.b <= req.b;
       `uvm_info(get_type_name(), $sformatf("Drove stimulus: a=%0h, b=%0h", req.a, req.b), UVM_HIGH)
       seq_item_port.item_done();
-    endtask
-  endclass // End of simple_adder_driver class
+    end
+  endtask
+
+endclass: simple_adder_driver // 补充分号并添加类标签
 
 `endif // SIMPLE_ADDER_DRIVER_SV

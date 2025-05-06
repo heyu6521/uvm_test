@@ -27,8 +27,8 @@ class simple_adder_agent extends uvm_agent;
     monitor = simple_adder_monitor::type_id::create("monitor", this);
     
     if(get_is_active() == UVM_ACTIVE) begin
-      driver = simple_adder_driver::type_id::create("driver", this);
-      sequencer = simple_adder_sequencer::type_id::create("sequencer", this);
+      driver = simple_adder_pkg::simple_adder_driver::type_id::create("driver", this);
+      sequencer = simple_adder_pkg::simple_adder_sequencer::type_id::create("sequencer", this);
     end
   endfunction
 

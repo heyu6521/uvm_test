@@ -22,8 +22,8 @@ class simple_adder_env extends uvm_env;
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     
-    agent = simple_adder_agent::type_id::create("agent", this);
-    scoreboard = simple_adder_scoreboard::type_id::create("scoreboard", this);
+    agent = simple_adder_pkg::simple_adder_agent::type_id::create("agent", this);
+    scoreboard = simple_adder_pkg::simple_adder_scoreboard::type_id::create("scoreboard", this);
   endfunction
 
   function void connect_phase(uvm_phase phase);
