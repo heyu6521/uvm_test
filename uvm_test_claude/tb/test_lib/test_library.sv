@@ -1,6 +1,9 @@
 `ifndef TEST_LIBRARY_SV
 `define TEST_LIBRARY_SV
 
+// 确保序列已定义
+`include "../sequences/simple_adder_sequences.sv"
+
 // 测试库类，用于注册和管理定向测试序列
 class test_library extends uvm_object;
   `uvm_object_utils(test_library)

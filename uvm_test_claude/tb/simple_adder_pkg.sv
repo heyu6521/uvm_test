@@ -8,10 +8,10 @@ package simple_adder_pkg;
   // Include sequence item
   `include "seq_items/simple_adder_seq_item.sv"
   
-  // Include sequences
+  // Include sequences first
   `include "sequences/simple_adder_sequences.sv"
   
-  // Include test library components
+  // Include test library components in dependency order
   `include "test_lib/test_library.sv"
   `include "test_lib/directed_test_base.sv"
   `include "test_lib/a_b_values_test.sv"

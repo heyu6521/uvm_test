@@ -1,6 +1,9 @@
 `ifndef DIRECTED_TEST_BASE_SV
 `define DIRECTED_TEST_BASE_SV
 
+// 确保基类已定义
+`include "../sequences/simple_adder_sequences.sv"
+
 // 定向测试基类
 class directed_test_base extends simple_adder_base_seq;
   `uvm_object_utils(directed_test_base)

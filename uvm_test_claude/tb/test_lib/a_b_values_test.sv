@@ -1,6 +1,9 @@
 `ifndef A_B_VALUES_TEST_SV
 `define A_B_VALUES_TEST_SV
 
+// 确保基类已定义
+`include "directed_test_base.sv"
+
 // 特定的定向测试：a和b的值从1到10
 class a_b_values_test extends directed_test_base;
   `uvm_object_utils(a_b_values_test)
@@ -33,6 +36,7 @@ class a_b_values_test extends directed_test_base;
   // 静态初始化块，用于注册到测试库
   static function automatic void register();
     test_library::register_test("a_b_values_test", a_b_values_test::get_type());
+    `uvm_info("a_b_values_test", "Registered to test library", UVM_LOW)
   endfunction
 endclass
 

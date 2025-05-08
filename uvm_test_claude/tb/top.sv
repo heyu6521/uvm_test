@@ -40,6 +40,7 @@ module top;
     
     // 注册所有定向测试到测试库
     a_b_values_test::register();
+    `uvm_info("TOP", "Registered a_b_values_test to test library", UVM_LOW)
     
     // 设置要运行的测试名称
     uvm_config_db#(string)::set(null, "*.simple_adder_library_test", "test_name", "a_b_values_test");
