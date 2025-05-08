@@ -11,6 +11,11 @@ package simple_adder_pkg;
   // Include sequences
   `include "sequences/simple_adder_sequences.sv"
   
+  // Include test library components
+  `include "test_lib/test_library.sv"
+  `include "test_lib/directed_test_base.sv"
+  `include "test_lib/a_b_values_test.sv"
+  
   // Include agent components
   `include "agent/simple_adder_sequencer.sv"
   `include "agent/simple_adder_driver.sv"
@@ -25,6 +30,7 @@ package simple_adder_pkg;
   `include "tests/simple_adder_base_test.sv"
   `include "tests/simple_adder_random_test.sv"
   `include "tests/simple_adder_directed_test.sv"
+  `include "tests/simple_adder_library_test.sv"
 
 endpackage
 `endif // SIMPLE_ADDER_PKG_SV
